@@ -655,8 +655,8 @@ footer {
   }
 
   footer address {
-    display: flex;
-    flex-direction: column;
+  
+    
   }
 
   footer address span {
