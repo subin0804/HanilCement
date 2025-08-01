@@ -66,7 +66,7 @@ header {
     left: 0;
     right: 0;
     z-index: 9999;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     color: #FFF;
     background-color: #000;
     transition: transform 0.3 ease;
@@ -368,7 +368,7 @@ header .dep1 {
 
 .news2_scroll {
   width: 100%;
-  border: 1px solid red;
+  
 }
 
 
@@ -584,12 +584,13 @@ footer .family_site {
 footer .family_site button {
   color: #FFF;
   padding: 0;
+  font-weight: 600;
 }
 
 footer .family_site ul {
   display: none;
   position: absolute;
-  right: -.2rem;
+  right: -.5rem;
   transform: translateY(-210px);
   height: 18rem;
   scrollbar-width: none;
@@ -608,5 +609,57 @@ footer .family_site ul li {
 
 footer .footer_wrap2 {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 12rem;
+}
+
+footer .footer_info {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+
+@media screen and (max-width: 675px) {
+  footer {
+    height: 28rem;
+  }
+  footer .footer_wrap2 {
+    flex-direction: column;
+    gap: 3rem;
+  } 
+  
+  footer .footer_info {
+    gap: 3rem;
+  }
+} 
+
+@media screen and (max-width: 480px) {
+footer {
+  height: 38rem;  
+}
+
+  footer .footer_wrap {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 7rem;
+  }
+
+  footer .footer_wrap button {
+    font-size: 1.4rem;
+  }
+
+  footer .footer_menu {
+    font-size: 1.6rem;
+  }
+
+  footer address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer address span {
+    font-weight: 600;
+  }
 }
