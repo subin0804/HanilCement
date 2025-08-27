@@ -18,6 +18,7 @@ body {
     font-size: 1.6rem;
 }
 
+
 *,
 *::before,
 *::after {
@@ -158,8 +159,99 @@ header .dep1 {
 
 
 /* 섹션2 */
+/* .esg {
+  position: relative;
+  height: 100vh;
+  min-height: 108rem;
+  background-image: url(../img/esg_safety.jpg);
+  background-size: cover;         
+}
+
+.esg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.esg .e_logo {
+  background: url(../img/logo2.png) no-repeat;
+  width: 100%;
+  height: 4rem;
+  z-index: 2;
+} */
+
+/* 섹션 베이스: 배경/내용 레이어를 겹치기 위한 기준 */
+.esg {
+  position: relative;             /* ::after, .esg-bg 기준 */
+  min-height: 100vh;              /* 뷰포트 꽉 채움 */
+  overflow: clip;                  /* 확대 시 넘친 이미지 잘라내기 */
+}
+
+/* 배경 레이어: 실제 확대 대상 */
+.esg .esg-bg {
+  position: absolute; inset: 0;   /* 섹션을 가득 덮음 */
+  background: center/cover no-repeat;
+  transform: scale(1);            /* 시작 스케일 1 → JS로 1.1~1.3까지 확대 */
+  opacity: 0;                     /* 시작은 살짝 어둡게/투명 → JS로 페이드인 */
+  transition: none;               /* 스크롤 기반이므로 CSS 트랜지션은 끔 */
+  will-change: transform, opacity;/* 성능 힌트 */
+  z-index: 1;
+}
+
+/* 배경 위 가독성 향상용 반투명 오버레이 */
+.esg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.5);    /* 텍스트 대비 확보 */
+  z-index: 2;
+}
+
+/* 내용 레이어 */
+.esg .esg-inner {
+  position: relative; z-index: 3; /* 배경/오버레이 위로 올림 */
+  max-width: 1200px; margin: 0 auto; padding: 8rem 2rem;
+  display: grid; gap: 2rem;
+}
+
+/* PC: 좌/우 2단 */
+@media (min-width: 1025px) {
+  .esg .esg-inner { grid-template-columns: 1fr 2fr; }
+  .esg-left { display: flex; flex-direction: column; gap: .8rem; }
+  .esg-item {
+    text-align: left; background: transparent; border: 0; color: #fff;
+    font-size: 1.6rem; padding: 1rem 1.2rem; cursor: pointer; opacity: .8;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .esg-item:hover, .esg-item.active { opacity: 1; transform: translateX(4px); }
+  }
+  .esg-right { color: #fff; }
+  .esg-panel { display: none; opacity: 0; transform: translateY(20px); }
+  .esg-panel.active { display: block; } /* JS가 display→block으로 전환 */
+}
+
+/* 태블릿/모바일: 한 컬럼 + 아코디언 */
+@media (max-width: 1024px) {
+  .esg .esg-inner { grid-template-columns: 1fr; }
+  .esg-right { display: none; }     /* PC용 패널 박스는 숨김 */
+  .esg-item {
+    width: 100%; text-align: left; color:#fff; cursor: pointer;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12); border-radius: 10px;
+    padding: 1rem 1.2rem; margin-bottom: .4rem;
+  }
+  /* 아코디언 본문은 버튼 아래서 동적으로 삽입/토글한다고 가정 */
+}
+
+
+
+
 /* h2 전체 스타일 */
-.title-eyebrow {
+/* .title-eyebrow {
     margin: 0;
     padding: 0;
     font-size: 1.4rem;
@@ -204,7 +296,7 @@ header .dep1 {
     font-size: 16px;
     margin: 0;
     font-weight: 500;
-  }
+  } */
 
 
 
@@ -213,28 +305,53 @@ header .dep1 {
   background: #000104;
 }
 
+/* ✅ [추가] sticky 스택 레이아웃의 기준 컨테이너 */
+.business .main_b { 
+  position: relative;             /* [추가] 카드들의 기준 컨텍스트 */
+  isolation: isolate;             /* [추가] z-index 겹침 버그 예방 */
+}
+
+/* ✅ [핵심 변경] 카드들을 sticky로 포개고, 살짝 겹치게 만듭니다 */
 .business .main_b_card {
+  overflow: hidden;
+  padding: 4.8rem 0;
+  position: sticky;               /* [수정] absolute가 아니라 sticky */
+  top: 10vh;                      /* [추가] 카드가 붙어 있을 위치(뷰포트 상단 여백) */
+  min-height: 50vh;               /* [추가] 카드 자체 높이(상황 맞게 조절 가능) */
+  transform: translateZ(0);       /* [추가] 스크롤 성능 최적화 */
+  box-shadow: 0 12px 40px rgba(0,0,0,.18); /* [추가] 살짝 떠있는 깊이감 */
+}
+
+/* [추가] 2번째 이후 카드는 살짝 위에 겹쳐서 등장 */
+.business .main_b_card:not(:first-child) { 
+  margin-top: -12vh;              /* [추가] 겹치는 양(프로젝트 톤&매너에 맞게 ±조절) */
+}
+
+/* .business .main_b_card {
   overflow: hidden;
   padding: 4.8rem 0;
   margin-top: -130px;
   background-color: transparent;
 
-}
+} */
+
 
 .business .main_b1 {
   background: #F9F3EF;
-  border-radius: 1rem;
+  border-radius: 5rem;
   /* padding: 2rem 6rem; */
   
 }
 .business .main_b2 {
   background: #D2C1B6;
-  border-radius: 1rem;
+  border-radius: 5rem;
   /* padding: 2rem 6rem; */
 }
 .business .main_b3 {
   background: #456882;
-  border-radius: 1rem;
+  border-radius: 5rem;
+  /* border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem; */
   /* padding: 2rem 6rem; */
 }
 
@@ -305,6 +422,9 @@ header .dep1 {
     width: 100%;
     padding: 0;
   }
+  .business .main_b_card:not(:first-child) { 
+  margin-top: -10vh;
+}
 }
 
 
@@ -596,8 +716,11 @@ footer .family_site ul {
   scrollbar-width: none;
   overflow: auto;
   border-radius: 1rem;
-  background: #eee;
-  color: #000;
+  /* background: #eee; */
+  /* color: #000; */
+  background: #000;
+  color: #eee;
+  border: 1px solid #AAA;
   font-weight: 500;
 }
 
