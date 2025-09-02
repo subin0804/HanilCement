@@ -237,22 +237,9 @@ section {
 .panel.orange { background-image:url("../img/esg3.jpg"); }
 .panel.purple { background-image:url("../img/esg4.jpg"); }
 
-.e_outro {
-  padding: 0;
-  /* height: 10vh;
-  color: #fff;
-  background: #070707;
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700; */
-}
-
-
 
 /* 섹션3 */
 .business {
-  
-  /* background: #070707; */
   background: linear-gradient(to bottom, #070707 0%, #333333 70%, #fff 80%);
   position: relative;
 }
@@ -262,11 +249,14 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  color: #DEDEDE;
-  font-size: 27rem;
+  color: #FEFEFE;
   font-weight: 700;
   text-align: center;
+  font-size: 38rem;
+  line-height: 0.5;
+
+  /* 노트북 이하 */
+  /* font-size: 27rem; */
 }
 
 /* [추가] sticky 스택 레이아웃의 기준 컨테이너 */
