@@ -150,7 +150,7 @@ header .dep1 {
     font-size: 2.2rem;
 }
 
-/* === 메인 컨텐트 === */
+/* ===== 메인 컨텐트 ===== */
 /* 섹션1 */
 .main_visual {
   height: 100vh;
@@ -159,159 +159,123 @@ header .dep1 {
 
 
 /* 섹션2 */
-/* .esg {
+/* ESG 섹션 래퍼 */
+.scroller {
+  height: auto; /* 데모처럼 전체 고정하지 말고 auto */
+}
+
+section {
+  min-height: 100vh;
+}
+
+.e_intro {
+  display:flex; justify-content:center; align-items:center;
+  background: #070707;
+  color:#fff;
+  font-size: 2rem;
+}
+
+.e_black {
   position: relative;
-  height: 100vh;
-  min-height: 108rem;
-  background-image: url(../img/esg_safety.jpg);
-  background-size: cover;         
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  background:#070707;
+  overflow: hidden;
+  padding: 0;
 }
 
-.esg::after {
-  content: "";
+.blue {
+  background:#00026d;
+}
+
+/* 텍스트 컨테이너 */
+.text-wrap {
+  position: relative;
+  width: 45rem;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.panel-text {
+  position: absolute;  
+  inset: 0;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background:#070707;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.panel-text.blue-text { color: #2ea043; }
+.panel-text.red-text { color: #ea3d3d; }
+.panel-text.orange-text { color: #667cf7; }
+.panel-text.purple-text { color: #9d50ff; }
+
+/* 이미지 컨테이너 */
+.p-wrap {
+  position: relative;
+  width: 45rem;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.panel {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.esg .e_logo {
-  background: url(../img/logo2.png) no-repeat;
-  width: 100%;
-  height: 4rem;
-  z-index: 2;
-} */
+.panel.blue   { background-image:url("../img/esg1.jpg"); }
+.panel.red    { background-image:url("../img/esg2.jpg"); }
+.panel.orange { background-image:url("../img/esg3.jpg"); }
+.panel.purple { background-image:url("../img/esg4.jpg"); }
 
-/* 섹션 베이스: 배경/내용 레이어를 겹치기 위한 기준 */
-.esg {
-  position: relative;             /* ::after, .esg-bg 기준 */
-  min-height: 100vh;              /* 뷰포트 꽉 채움 */
-  overflow: clip;                  /* 확대 시 넘친 이미지 잘라내기 */
+.e_outro {
+  padding: 0;
+  /* height: 10vh;
+  color: #fff;
+  background: #070707;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700; */
 }
-
-/* 배경 레이어: 실제 확대 대상 */
-.esg .esg-bg {
-  position: absolute; inset: 0;   /* 섹션을 가득 덮음 */
-  background: center/cover no-repeat;
-  transform: scale(1);            /* 시작 스케일 1 → JS로 1.1~1.3까지 확대 */
-  opacity: 0;                     /* 시작은 살짝 어둡게/투명 → JS로 페이드인 */
-  transition: none;               /* 스크롤 기반이므로 CSS 트랜지션은 끔 */
-  will-change: transform, opacity;/* 성능 힌트 */
-  z-index: 1;
-}
-
-/* 배경 위 가독성 향상용 반투명 오버레이 */
-.esg::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,.5);    /* 텍스트 대비 확보 */
-  z-index: 2;
-}
-
-/* 내용 레이어 */
-.esg .esg-inner {
-  position: relative; z-index: 3; /* 배경/오버레이 위로 올림 */
-  max-width: 1200px; margin: 0 auto; padding: 8rem 2rem;
-  display: grid; gap: 2rem;
-}
-
-/* PC: 좌/우 2단 */
-@media (min-width: 1025px) {
-  .esg .esg-inner { grid-template-columns: 1fr 2fr; }
-  .esg-left { display: flex; flex-direction: column; gap: .8rem; }
-  .esg-item {
-    text-align: left; background: transparent; border: 0; color: #fff;
-    font-size: 1.6rem; padding: 1rem 1.2rem; cursor: pointer; opacity: .8;
-  }
-  @media (hover:hover) and (pointer:fine) {
-    .esg-item:hover, .esg-item.active { opacity: 1; transform: translateX(4px); }
-  }
-  .esg-right { color: #fff; }
-  .esg-panel { display: none; opacity: 0; transform: translateY(20px); }
-  .esg-panel.active { display: block; } /* JS가 display→block으로 전환 */
-}
-
-/* 태블릿/모바일: 한 컬럼 + 아코디언 */
-@media (max-width: 1024px) {
-  .esg .esg-inner { grid-template-columns: 1fr; }
-  .esg-right { display: none; }     /* PC용 패널 박스는 숨김 */
-  .esg-item {
-    width: 100%; text-align: left; color:#fff; cursor: pointer;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.12); border-radius: 10px;
-    padding: 1rem 1.2rem; margin-bottom: .4rem;
-  }
-  /* 아코디언 본문은 버튼 아래서 동적으로 삽입/토글한다고 가정 */
-}
-
-
-
-
-/* h2 전체 스타일 */
-/* .title-eyebrow {
-    margin: 0;
-    padding: 0;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    color: #999;
-    letter-spacing: 1rem;
-  }
-  
-  .sec_cnt_nav {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1rem;
-  }
-  
-  .m_h9 {
-    margin-top: 3.6rem;
-    margin-bottom: 3.6rem;
-  }
-  
-  .txt_ef_up {
-    animation: fadeUp 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .active {
-    font-weight: bold;
-    color: #222;
-  }
-  
-  h2 p,
-  h2 span {
-    color: #000;
-    font-size: 16px;
-    margin: 0;
-    font-weight: 500;
-  } */
 
 
 
 /* 섹션3 */
 .business {
-  background: #000104;
+  
+  /* background: #070707; */
+  background: linear-gradient(to bottom, #070707 0%, #333333 70%, #fff 80%);
+  position: relative;
 }
 
-/* ✅ [추가] sticky 스택 레이아웃의 기준 컨테이너 */
+.b_title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #DEDEDE;
+  font-size: 27rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* [추가] sticky 스택 레이아웃의 기준 컨테이너 */
 .business .main_b { 
   position: relative;             /* [추가] 카드들의 기준 컨텍스트 */
   isolation: isolate;             /* [추가] z-index 겹침 버그 예방 */
 }
 
-/* ✅ [핵심 변경] 카드들을 sticky로 포개고, 살짝 겹치게 만듭니다 */
+/* [핵심 변경] 카드들을 sticky로 포개고, 살짝 겹치게 만듭니다 */
 .business .main_b_card {
   overflow: hidden;
   padding: 4.8rem 0;
@@ -327,15 +291,6 @@ header .dep1 {
   margin-top: -12vh;              /* [추가] 겹치는 양(프로젝트 톤&매너에 맞게 ±조절) */
 }
 
-/* .business .main_b_card {
-  overflow: hidden;
-  padding: 4.8rem 0;
-  margin-top: -130px;
-  background-color: transparent;
-
-} */
-
-
 .business .main_b1 {
   background: #F9F3EF;
   border-radius: 5rem;
@@ -348,11 +303,8 @@ header .dep1 {
   /* padding: 2rem 6rem; */
 }
 .business .main_b3 {
-  background: #456882;
+  background: #333D51;
   border-radius: 5rem;
-  /* border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem; */
-  /* padding: 2rem 6rem; */
 }
 
 .business .flex {
@@ -361,14 +313,13 @@ header .dep1 {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  /* gap: 2rem; */
-
 }
 
 .business .bcontent {
   width: 59%;
   padding: 0 10rem 0 0;
 }
+
 
 .business .b_tit {
   font-size: 2.4rem;
@@ -427,33 +378,11 @@ header .dep1 {
 }
 }
 
-
-/* mid */
-.mid {
-  position: relative;
-}
-.mid .business_bg {
-  /* position: fixed; */
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  /* z-index: -1; */
-  background: #000104;
-}
-.mid .business_bg video {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: .7;
-  z-index: -1;
-}
-
-
 /* 섹션4 */
+.news {
+  padding-top: 0;
+}
+
 .news h2 {
   margin-bottom: 5rem;
 }
@@ -465,15 +394,6 @@ header .dep1 {
 .news-swiper {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
-}
-
-.news .swiper-wrapper {
-  overflow: hidden;
-}
-
-.news .swiper-slide {
-  object-fit: cover;
 }
 
 .news .news_img {
@@ -488,13 +408,42 @@ header .dep1 {
 
 .news2_scroll {
   width: 100%;
-  
+}
+
+.news_wrap a>p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;  /* 세로로 줄 쌓기 */
+  -webkit-line-clamp: 2;         /* 2줄까지만 표시 */
+  overflow: hidden;
+  line-height: 2rem;
+  margin-top: 2rem;
+}
+
+.news_wrap .news_tit {
+  height: 8rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #333;
+}
+
+.news_wrap .news_date {
+  color: #999;
+}
+
+.news2_scroll {
+  margin-bottom: 15rem;
+}
+
+@media screen and (max-width: 767px) {
+
+
+
 }
 
 
 /* 섹션5 */
 .recruit {
-
+  padding-top: 0;
 }
 
 .recruit_txt {
@@ -541,7 +490,6 @@ header .dep1 {
   width: calc((100% - 4rem) * (22 / 96));
   min-width: 0;
   height: 35rem;
-
 }
 
 .recruit .recuit_box3 {
@@ -551,15 +499,14 @@ header .dep1 {
   width: calc((100% - 4rem) * (22 / 96));
   min-width: 0;
   height: 35rem;
-
 }
 
 .recruit li {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
   color: #FFF;
   line-height: 2rem;
   padding: 0 2rem;
@@ -567,6 +514,10 @@ header .dep1 {
 }
 
 .recruit li h4 {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
   font-size: 4rem;
   font-weight: 600;
   margin-bottom: 4rem;
@@ -574,14 +525,14 @@ header .dep1 {
 
 .recuit_wrap li p {
   opacity: 0;                   
-  transform: translateY(20px);  
+  transform: translateY(50px);  
   transition: all 0.5s ease;
   line-height: 2.5rem;    
 }
 
 .recuit_wrap li:hover p {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(30px);
 }
 
 

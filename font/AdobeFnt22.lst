@@ -1,0 +1,566 @@
+%!Adobe-FontList 1.22
+%Locale:0x412
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Italic
+FamilyName:EB Garamond
+StyleName:Italic
+FullName:EB Garamond Italic
+MenuName:EB Garamond
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\EBGaramond-Italic-VariableFont_wght.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:TrueTypeVariableFont
+FileLength:814012
+FileModTime:1727709108
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Regular
+FamilyName:EB Garamond
+StyleName:Regular
+FullName:EB Garamond Regular
+MenuName:EB Garamond
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\EBGaramond-VariableFont_wght.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:TrueTypeVariableFont
+FileLength:936656
+FileModTime:1727709108
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\OFL.txt
+FileModTime:1743065768
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\README.txt
+FileModTime:1743065768
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Bold
+FamilyName:EB Garamond
+StyleName:Bold
+FullName:EB Garamond Bold
+MenuName:EB Garamond
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:563700
+FileModTime:1727709108
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-BoldItalic
+FamilyName:EB Garamond
+StyleName:Bold Italic
+FullName:EB Garamond Bold Italic
+MenuName:EB Garamond
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-BoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:496708
+FileModTime:1727709108
+WeightClass:700
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-ExtraBold
+FamilyName:EB Garamond
+StyleName:ExtraBold
+FullName:EB Garamond ExtraBold
+MenuName:EB Garamond ExtraBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-ExtraBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:563196
+FileModTime:1727709108
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond ExtraBold
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-ExtraBoldItalic
+FamilyName:EB Garamond
+StyleName:ExtraBold Italic
+FullName:EB Garamond ExtraBold Italic
+MenuName:EB Garamond ExtraBold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-ExtraBoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:495844
+FileModTime:1727709108
+WeightClass:800
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond ExtraBold
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Italic
+FamilyName:EB Garamond
+StyleName:Italic
+FullName:EB Garamond Italic
+MenuName:EB Garamond
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-Italic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:493040
+FileModTime:1727709108
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Medium
+FamilyName:EB Garamond
+StyleName:Medium
+FullName:EB Garamond Medium
+MenuName:EB Garamond Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:563744
+FileModTime:1727709108
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond Medium
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-MediumItalic
+FamilyName:EB Garamond
+StyleName:Medium Italic
+FullName:EB Garamond Medium Italic
+MenuName:EB Garamond Medium
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-MediumItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:496160
+FileModTime:1727709108
+WeightClass:500
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond Medium
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-Regular
+FamilyName:EB Garamond
+StyleName:Regular
+FullName:EB Garamond Regular
+MenuName:EB Garamond
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:560876
+FileModTime:1727709108
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-SemiBold
+FamilyName:EB Garamond
+StyleName:SemiBold
+FullName:EB Garamond SemiBold
+MenuName:EB Garamond SemiBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:564040
+FileModTime:1727709108
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,EB Garamond SemiBold
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:EBGaramond-SemiBoldItalic
+FamilyName:EB Garamond
+StyleName:SemiBold Italic
+FullName:EB Garamond SemiBold Italic
+MenuName:EB Garamond SemiBold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\EB_Garamond\static\EBGaramond-SemiBoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:496880
+FileModTime:1727709108
+WeightClass:600
+WidthClass:5
+AngleClass:1
+NameArray:0,Win,1,EB Garamond SemiBold
+NameArray:0,Win,16,EB Garamond
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Thin
+FamilyName:Noto Sans KR
+StyleName:Thin
+FullName:Noto Sans KR Thin
+MenuName:Noto Sans KR Thin
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Thin
+FullNameNative:Noto Sans KR Thin
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\NotoSansKR-VariableFont_wght.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:TrueTypeVariableFont
+FileLength:10361060
+FileModTime:1692316384
+WeightClass:100
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR Thin
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\OFL.txt
+FileModTime:1743065768
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\README.txt
+FileModTime:1743065768
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Black
+FamilyName:Noto Sans KR
+StyleName:Black
+FullName:Noto Sans KR Black
+MenuName:Noto Sans KR Black
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Black
+FullNameNative:Noto Sans KR Black
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Black.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6188800
+FileModTime:1692316384
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR Black
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Bold
+FamilyName:Noto Sans KR
+StyleName:Bold
+FullName:Noto Sans KR Bold
+MenuName:Noto Sans KR
+StyleBits:2
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Bold
+FullNameNative:Noto Sans KR Bold
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6190824
+FileModTime:1692316384
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-ExtraBold
+FamilyName:Noto Sans KR
+StyleName:ExtraBold
+FullName:Noto Sans KR ExtraBold
+MenuName:Noto Sans KR ExtraBold
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:ExtraBold
+FullNameNative:Noto Sans KR ExtraBold
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-ExtraBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6189864
+FileModTime:1692316384
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR ExtraBold
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-ExtraLight
+FamilyName:Noto Sans KR
+StyleName:ExtraLight
+FullName:Noto Sans KR ExtraLight
+MenuName:Noto Sans KR ExtraLight
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:ExtraLight
+FullNameNative:Noto Sans KR ExtraLight
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-ExtraLight.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6201060
+FileModTime:1692316384
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR ExtraLight
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Light
+FamilyName:Noto Sans KR
+StyleName:Light
+FullName:Noto Sans KR Light
+MenuName:Noto Sans KR Light
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Light
+FullNameNative:Noto Sans KR Light
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Light.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6198972
+FileModTime:1692316384
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR Light
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Medium
+FamilyName:Noto Sans KR
+StyleName:Medium
+FullName:Noto Sans KR Medium
+MenuName:Noto Sans KR Medium
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Medium
+FullNameNative:Noto Sans KR Medium
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6190280
+FileModTime:1692316384
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR Medium
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Regular
+FamilyName:Noto Sans KR
+StyleName:Regular
+FullName:Noto Sans KR Regular
+MenuName:Noto Sans KR
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Regular
+FullNameNative:Noto Sans KR Regular
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6192764
+FileModTime:1692316384
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-SemiBold
+FamilyName:Noto Sans KR
+StyleName:SemiBold
+FullName:Noto Sans KR SemiBold
+MenuName:Noto Sans KR SemiBold
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:SemiBold
+FullNameNative:Noto Sans KR SemiBold
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6188924
+FileModTime:1692316384
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR SemiBold
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NotoSansKR-Thin
+FamilyName:Noto Sans KR
+StyleName:Thin
+FullName:Noto Sans KR Thin
+MenuName:Noto Sans KR Thin
+StyleBits:0
+FamilyNameNative:Noto Sans KR
+StyleNameNative:Thin
+FullNameNative:Noto Sans KR Thin
+WritingScript:Korean
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Noto_Sans_KR\static\NotoSansKR-Thin.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:6201276
+FileModTime:1692316384
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Noto Sans KR Thin
+NameArray:0,Win,16,Noto Sans KR
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\subin\한일시멘트_박수빈\Font\Pretendard-1.3.9\LICENSE.txt
+FileModTime:1699208534
+%EndFont
+

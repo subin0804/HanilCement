@@ -53,48 +53,57 @@ window.addEventListener('scroll', function () {
 //   });
   
 
+/* esg */
+gsap.registerPlugin(ScrollTrigger);
+
+// 1. 패널 겹치기 zIndex
+gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
+gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
+
+// 2. 이미지 패널 애니메이션
+const panels = gsap.utils.toArray('.panel');
+panels.forEach((panel, i) => {
+  gsap.to(panel, {
+    height: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "section.e_black",
+      start: () => "top -" + (window.innerHeight * (i + 0.5)),
+      end: "+=" + window.innerHeight,
+      scrub: true,
+      invalidateOnRefresh: true
+    }
+  });
+});
+
+// 3. 텍스트 애니메이션
+const texts = gsap.utils.toArray('.panel-text');
+texts.forEach((text, i) => {
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: "section.e_black",
+      start: () => "top -" + (window.innerHeight * i),
+      end: "+=" + window.innerHeight,
+      scrub: true,
+      invalidateOnRefresh: true
+    }
+  })
+  .to(text, { opacity: 1, yPercent: -50, duration: 0.33 })
+  .to(text, { opacity: 0, yPercent: 0, duration: 0.33 }, 0.66);
+});
+
+// 4. 섹션 고정 (pin)
+ScrollTrigger.create({
+  trigger: "section.e_black",
+  pin: true,
+  start: "top top",
+  end: () => "+=" + (panels.length * window.innerHeight),
+  scrub: true,
+  invalidateOnRefresh: true,
+  // markers:true // 디버깅용
+});
 
 
-
-
-/* business */
-
-// main_b_card 요소들을 순회하며 애니메이션 적용
-// gsap.utils.toArray(".main_b_card").forEach((card, i) => {
-//   gsap.from(card, {
-//     y: 80,              // 아래에서 올라오듯
-//     opacity: 0,         // 처음에는 투명
-//     duration: 1,        // 애니메이션 지속 시간
-//     delay: i * 0.2,     // 순차 등장 효과
-//     ease: "power2.out", // 부드러운 효과
-//     scrollTrigger: {
-//       trigger: card,
-//       start: "top 85%",               // 화면의 85% 지점 도달 시 시작
-//       toggleActions: "play none none none"
-
-//     }
-//   });
-// });
-// gsap.utils.toArray(".main_b_card").forEach((card, i) => {
-//   gsap.fromTo(card,
-//     {
-//       y: 80,
-//       opacity: 0
-//     },
-//     {
-//       y: 0,
-//       opacity: 1,
-//       duration: 1,
-//       delay: i * 0.05, // 💡 너무 겹치지 않게 간격 줄이기
-//       ease: "power2.out",
-//       scrollTrigger: {
-//         trigger: card,
-//         start: "top 85%",
-//         toggleActions: "play reverse play reverse"
-//       }
-//     }
-//   );
-// });
 
 
 /* business */
@@ -153,6 +162,18 @@ const swiper = new Swiper(".news-swiper", {
       el: ".swiper-scrollbar",
     },
     mousewheel: true,
+    breakpoints: {
+    // 0~767px (모바일)
+    0: {
+      direction: 'horizontal',   
+      slidesPerView:3
+      },
+    767: {
+      direction: 'horizontal',
+      slidesPerView:4
+    }
+    
+    }
   });
 
 
