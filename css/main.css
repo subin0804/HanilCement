@@ -380,7 +380,9 @@ section {
 
 /* 섹션4 */
 .news {
-  padding-top: 0;
+  /* padding-top: 0; */
+  /* min-height: fit-content; */
+  min-height: max-content;
 }
 
 .news h2 {
@@ -431,7 +433,7 @@ section {
 }
 
 .news2_scroll {
-  margin-bottom: 15rem;
+  margin-bottom: 7rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -443,7 +445,9 @@ section {
 
 /* 섹션5 */
 .recruit {
-  padding-top: 0;
+  /* padding-top: 0; */
+  min-height: max-content;
+  /* max-content와 min-content 설정시 반응형할때 문제없는지? */
 }
 
 .recruit_txt {
@@ -574,6 +578,7 @@ section {
 /* 섹션6 */
 .service {
   padding: 0;
+  min-height: max-content;
 }
 
 .service_wrap {
