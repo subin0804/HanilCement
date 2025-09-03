@@ -16,6 +16,7 @@ html {
 body {
     font-family: 'Pretendard','EBGaramond';
     font-size: 1.6rem;
+    overflow-x: hidden;
 }
 
 
