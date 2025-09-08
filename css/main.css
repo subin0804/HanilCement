@@ -7,6 +7,7 @@
 html, body {
   /* max-width: 100%;
   overflow-x: hidden; */
+  /* min-width: 108rem; */
 }
 
 html {
@@ -71,7 +72,7 @@ header {
     padding: 1.5rem 0;
     color: #FFF;
     background-color: #000;
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
 }
 
 header .container {
@@ -154,15 +155,125 @@ header .dep1 {
 /* ===== 메인 컨텐트 ===== */
 /* 섹션1 */
 .main_visual {
+  position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
+.main_visual .main_text1 {
+  position: absolute;
+  line-height: 4.2rem;
+  top: 50%;
+  right: 5%;
+  z-index: 30;
+  color: #FFF;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
 
 /* 섹션2 */
+.esg {
+  background: #070707;
+}
+
+.esg .container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.content__hero {
+  height: 40vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.esg_title {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  color: #FFF;
+}
+
+.features__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  height: 100vh;
+  border-top: dashed 2px grey;
+}
+
+.features__item--left {
+  flex-direction: row;
+  text-align: right;
+}
+
+.features__item--right {
+  flex-direction: row-reverse;
+}
+
+.features__image {
+  flex: 1 1 40%;
+  position: relative;
+}
+
+.features__card {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.features__img {
+  max-width: 100%;
+  position: absolute;
+  object-fit: cover;
+  display: block;
+}
+
+.features__content {
+  flex: 1 1 55%;
+}
+
+.features__title {
+  font-size: 1.8em;
+  margin-block-end: 1rem;
+}
+
+.features__description {
+  line-height: 1.6;
+}
+
+/* GSAP animation reveal styles */
+.gs_reveal {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.spacer {
+  height: 100vh;
+  background: #070707;
+  color: #FFF;
+  text-align: center;
+  padding-top: 12rem;
+  font-size: 2.8rem;
+}
+
+
+
 /* ESG 섹션 래퍼 */
-.scroller {
-  height: auto; /* 데모처럼 전체 고정하지 말고 auto */
+/* .scroller {
+  height: auto; 
 }
 
 section {
@@ -190,12 +301,12 @@ section {
   background:#00026d;
 }
 
-/* 텍스트 컨테이너 */
 .text-wrap {
   position: relative;
-  width: 45rem;
+  width: 35%;
   height: 80vh;
   overflow: hidden;
+  color: #FFF;
 }
 
 .panel-text {
@@ -212,15 +323,11 @@ section {
   transform: translate(-50%, -50%);
 }
 
-.panel-text.blue-text { color: #2ea043; }
-.panel-text.red-text { color: #ea3d3d; }
-.panel-text.orange-text { color: #667cf7; }
-.panel-text.purple-text { color: #9d50ff; }
 
-/* 이미지 컨테이너 */
+
 .p-wrap {
   position: relative;
-  width: 45rem;
+  width: 65%;
   height: 80vh;
   overflow: hidden;
 }
@@ -233,10 +340,11 @@ section {
   background-repeat: no-repeat;
 }
 
-.panel.blue   { background-image:url("../img/esg1.jpg"); }
-.panel.red    { background-image:url("../img/esg2.jpg"); }
-.panel.orange { background-image:url("../img/esg3.jpg"); }
-.panel.purple { background-image:url("../img/esg4.jpg"); }
+.panel.blue   { background-image:url("../img/esg2.jpg"); }
+.panel.red    { background-image:url("../img/esg3.jpg"); }
+.panel.orange { background-image:url("../img/remicon2.jpg"); }
+.panel.purple { background-image:url("../img/esg4.jpg"); } */
+
 
 
 /* 섹션3 */
@@ -260,42 +368,50 @@ section {
   /* font-size: 27rem; */
 }
 
-/* [추가] sticky 스택 레이아웃의 기준 컨테이너 */
+.business_title {
+  /* position: relative;
+  top: 8rem;
+  color: #000;
+  border: 1px solid red;
+  z-index: 10; */
+
+}
+
+.business .bcontent span {
+  cursor: pointer;
+  
+  /* margin-top: 5rem; */
+  font-size: 1.8rem;
+}
+
 .business .main_b { 
   position: relative;             /* [추가] 카드들의 기준 컨텍스트 */
   isolation: isolate;             /* [추가] z-index 겹침 버그 예방 */
 }
 
-/* [핵심 변경] 카드들을 sticky로 포개고, 살짝 겹치게 만듭니다 */
 .business .main_b_card {
-  overflow: hidden;
-  padding: 4.8rem 0;
-  position: sticky;               /* [수정] absolute가 아니라 sticky */
-  top: 10vh;                      /* [추가] 카드가 붙어 있을 위치(뷰포트 상단 여백) */
-  min-height: 50vh;               /* [추가] 카드 자체 높이(상황 맞게 조절 가능) */
-  transform: translateZ(0);       /* [추가] 스크롤 성능 최적화 */
-  box-shadow: 0 12px 40px rgba(0,0,0,.18); /* [추가] 살짝 떠있는 깊이감 */
+  position: relative;
+  padding: 4rem 0;
 }
 
-/* [추가] 2번째 이후 카드는 살짝 위에 겹쳐서 등장 */
-.business .main_b_card:not(:first-child) { 
-  margin-top: -12vh;              /* [추가] 겹치는 양(프로젝트 톤&매너에 맞게 ±조절) */
+.business>* {
+  /* box-sizing: border-box; */
 }
 
 .business .main_b1 {
   background: #F9F3EF;
-  border-radius: 5rem;
-  /* padding: 2rem 6rem; */
-  
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem;
 }
+
 .business .main_b2 {
   background: #D2C1B6;
-  border-radius: 5rem;
-  /* padding: 2rem 6rem; */
+  margin-top: -24rem;
+  
 }
 .business .main_b3 {
   background: #333D51;
-  border-radius: 5rem;
+  margin-top: -24rem;
 }
 
 .business .flex {
@@ -304,41 +420,46 @@ section {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  padding: 2rem 0;
 }
 
 .business .bcontent {
-  width: 59%;
+  width: 40%;
   padding: 0 10rem 0 0;
 }
 
+.business .b3 p {
+  color: #FFF;
+}
 
 .business .b_tit {
-  font-size: 2.4rem;
-  border: 1px solid #333;
-  border-radius: 50%;
+  font-size: 12rem;
   color: #333;
-  width: 10rem;
-  height: 5rem;
-  line-height: 5rem;
-  text-align: center;
-  margin-bottom: 5rem;
+  width: 60rem;
+  height: 18rem;
+  line-height: 12rem;
+  text-align: left  ;
+  font-weight: 600;
+  color: 	#050014;
+  margin-top:5rem;
 }
+
 
 .business .b_text {
   color: #222;
-  font-size: 1.8rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  height: 10rem;
+  line-height: 3rem;
 }
 
 .business .img_wrap {
-  width: 41%;
+  width:45%;
 }
 
 .business .img_box {
   position: relative;
   overflow: hidden;
-  /* height: 30rem; */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   border-radius: 1rem;
 }
 
@@ -364,9 +485,7 @@ section {
     width: 100%;
     padding: 0;
   }
-  .business .main_b_card:not(:first-child) { 
-  margin-top: -10vh;
-}
+
 }
 
 /* 섹션4 */
@@ -506,6 +625,14 @@ section {
   line-height: 2rem;
   padding: 0 2rem;
   border-radius: 2rem;
+  transition: background-color 1s ease; /* 기본 상태에 선언 */
+  user-select: none;
+}
+
+
+.recruit li:hover {
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: multiply;
 }
 
 .recruit li h4 {
@@ -528,6 +655,27 @@ section {
 .recuit_wrap li:hover p {
   opacity: 1;
   transform: translateY(30px);
+  
+}
+
+.recuit_wrap i {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+  opacity: 0;
+  transition: all 0.5s;
+  font-size: 3rem;
+  font-weight: 600;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+
+.recuit_wrap li:hover i {
+  right: 3rem;
+  opacity: 1;
+  
 }
 
 
@@ -570,6 +718,8 @@ section {
 .service {
   padding: 0;
   min-height: max-content;
+  user-select: none;
+  cursor: none;
 }
 
 .service_wrap {
@@ -614,9 +764,42 @@ section {
   line-height: 7rem;
   font-size: 1.6rem;
   border: 1px solid #FFF;
+  cursor: none;
+  /* border-radius: 50%; */
+}
+
+.service_text a:hover {
+  transition: all 2s;
+  transform: rotate(360deg);
+  color: #000;
+  border: 1px solid #000;
   border-radius: 50%;
 }
-  
+
+/* 커서 포인트 */
+
+/* 커서 아이콘 */
+.service .mouse {
+    width: 10rem; /* 아이콘 크기 */
+    height: 10rem;
+    position: fixed; /* 화면 기준으로 움직이게 */
+    pointer-events: none; /* 클릭 방해 안함 */
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, opacity 0.2s ease;
+    z-index: 9999;
+    opacity: 0.8; /* 살짝 투명 */
+}
+
+/* hover 시 커서 확대 + 강조 */
+.service a:hover ~ .mouse {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+}
+
+
+
+
+
 
 
 /* footer */
@@ -733,3 +916,6 @@ footer {
     font-weight: 600;
   }
 }
+
+
+
