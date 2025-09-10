@@ -54,147 +54,151 @@ window.addEventListener('scroll', function () {
   
 
 /* esg */
+// ========== 공통 함수(순서/내용 그대로) ==========
 function animateFrom(elem, direction) {
   direction = direction || 1;
-  var x = 0,
-      y = direction * 100;
-  if(elem.classList.contains("gs_reveal_fromLeft")) {
-    x = -100;
-    y = 0;
-  } else if (elem.classList.contains("gs_reveal_fromRight")) {
-    x = 100;
-    y = 0;
+  var x = 0, y = direction * 100;
+  if (elem.classList.contains("gs_reveal_fromLeft")) { 
+    x = -100; 
+    y = 0; 
+  } else if (elem.classList.contains("gs_reveal_fromRight")) { 
+    x = 100; 
+    y = 0; 
   }
+
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "0";
-  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+  gsap.fromTo(elem, { x: x, y: y, autoAlpha: 0 }, {
     duration: 1.25, 
-    x: 0,
+    x: 0, 
     y: 0, 
     autoAlpha: 1, 
     ease: "expo", 
     overwrite: "auto"
   });
 }
-
-function hide(elem) {
-  gsap.set(elem, {autoAlpha: 0});
-}
+function hide(elem) { gsap.set(elem, { autoAlpha: 0 }); }
 
 document.addEventListener("DOMContentLoaded", function() {
   gsap.registerPlugin(ScrollTrigger);
-  
-  gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
-    hide(elem); // assure that the element is hidden when scrolled into view
-    
+
+  // ================== [항시 실행] 타이틀 애니메이션 ==================
+  // - 뷰포트와 무관하게 항상 동작
+  // - 다른 구간에서 clearProps로 지우지 않도록 데스크탑 초기화 대상에서 제외할 것
+  (function setupAlwaysOnTitle() {
+    const title = document.querySelector(".esg_title.gs_reveal");
+    if (!title) return;
+    hide(title);
     ScrollTrigger.create({
-      trigger: elem,
-      // markers: true,
-      onEnter: function() { animateFrom(elem) }, 
-      onEnterBack: function() { animateFrom(elem, -1) },
-      onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
+      trigger: title,
+      start: "top 60%",                 // 필요시 조정
+      onEnter: () => animateFrom(title),
+      onEnterBack: () => animateFrom(title, -1),
+      onLeave: () => hide(title)
     });
+  })();
+  // ================== [항시 실행] 끝 ==================
+
+  // ================== 반응형 분기 ==================
+  ScrollTrigger.matchMedia({
+    // <= 1023px : 기존 .gs_reveal 전부(타이틀 포함) 작동
+    "(max-width: 1023px)": function () {
+      gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
+        // 타이틀은 이미 위에서 트리거 생성했지만, 중복 생성되어도 큰 문제는 없음.
+        // 원치 않으면 여기서 타이틀을 건너뛰어도 됩니다.
+        hide(elem);
+        ScrollTrigger.create({
+          trigger: elem,
+          // markers: true,
+          onEnter: function() { animateFrom(elem) },
+          onEnterBack: function() { animateFrom(elem, -1) },
+          onLeave: function() { hide(elem) }
+        });
+      });
+    },
+
+    // >= 1024px : 카드별 "이미지 -> 텍스트" 순서 등장
+    "(min-width: 1024px)": function () {
+      // ⚠️ clearProps 대상은 .features 내부의 gs_reveal만!
+      //    → 타이틀(.esg_title)은 제외해야 '항시 실행' 트리거가 정상 동작
+      gsap.set(".features .gs_reveal", { clearProps: "opacity,visibility,transform" });
+
+      const rows = gsap.utils.toArray(".features__item");
+      rows.forEach((row) => {
+        const img = row.querySelector(".features__card");
+        const txt = row.querySelector(".features__content");
+
+        // 초기 상태
+        gsap.set([img, txt], { autoAlpha: 0, y: 40 });
+
+        // 한 카드씩: 이미지 -> 텍스트
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 70%",
+            end: "bottom 40%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+          }
+        })
+        .to(img, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" })
+        .to(txt, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.3");
+      });
+    }
   });
+  // ================== 반응형 분기 끝 ==================
 });
 
-// gsap.registerPlugin(ScrollTrigger);
 
-// // 1. 패널 겹치기 zIndex
-// gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
-// gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
 
-// // 2. 이미지 패널 애니메이션
-// const panels = gsap.utils.toArray('.panel');
-// panels.forEach((panel, i) => {
-//   gsap.to(panel, {
-//     height: 0,
-//     ease: "none",
-//     scrollTrigger: {
-//       trigger: "section.e_black",
-//       start: () => "top -" + (window.innerHeight * (i + 0.25)),
-//       end: "+=" + (window.innerHeight * 0.5),
-//       scrub: true,
-//       invalidateOnRefresh: true
-//     }
+
+// function animateFrom(elem, direction) {
+//   direction = direction || 1;
+//   var x = 0,
+//       y = direction * 100;
+//   if(elem.classList.contains("gs_reveal_fromLeft")) {
+//     x = -100;
+//     y = 0;
+//   } else if (elem.classList.contains("gs_reveal_fromRight")) {
+//     x = 100;
+//     y = 0;
+//   }
+//   elem.style.transform = "translate(" + x + "px, " + y + "px)";
+//   elem.style.opacity = "0";
+//   gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+//     duration: 1.25, 
+//     x: 0,
+//     y: 0, 
+//     autoAlpha: 1, 
+//     ease: "expo", 
+//     overwrite: "auto"
 //   });
-// });
+// }
 
-// // 3. 텍스트 애니메이션
-// const texts = gsap.utils.toArray('.panel-text');
-// texts.forEach((text, i) => {
-//   gsap.timeline({
-//     scrollTrigger: {
-//       trigger: "section.e_black",
-//       start: () => "top -" + (window.innerHeight * i),
-//       end: "+=" + (window.innerHeight * 0.5),
-//       // end: "+=" + window.innerHeight,
-//       scrub: true,
-//       invalidateOnRefresh: true
-//     }
-//   })
-//   .to(text, { opacity: 1, y: "0%", duration: 0.33 })
-//   .to(text, { opacity: 0, y: "-50%", duration: 0.33 }, 0.66);
-// });
+// function hide(elem) {
+//   gsap.set(elem, {autoAlpha: 0});
+// }
 
-// // 4. 섹션 고정 (pin)
-// ScrollTrigger.create({
-//   trigger: "section.e_black",
-//   pin: true,
-//   start: "top top",
-//   end: () => "+=" + (panels.length * window.innerHeight),
-//   scrub: true,
-//   invalidateOnRefresh: true,
-//   // markers:true // 디버깅용
+// document.addEventListener("DOMContentLoaded", function() {
+//   gsap.registerPlugin(ScrollTrigger);
+  
+//   gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
+//     hide(elem); // assure that the element is hidden when scrolled into view
+    
+//     ScrollTrigger.create({
+//       trigger: elem,
+//       // markers: true,
+//       onEnter: function() { animateFrom(elem) }, 
+//       onEnterBack: function() { animateFrom(elem, -1) },
+//       onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
+//     });
+//   });
 // });
 
 
 
 
 /* business */
-  // [초급자용 주석] sticky가 “겹치고 밀리는” 큰 흐름을 만들고,
-  // GSAP은 오직 ‘부드러운 보정(살짝 떠오르며/사라지며)’만 담당합니다.
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   const cards = gsap.utils.toArray('.business .main_b_card');
-
-  //   cards.forEach((card, i) => {
-  //     const prev = cards[i - 1];
-
-  //     // 새 카드가 들어올 때: 살짝 아래(y:40) & 옅게(opacity:0) → 제자리 & 불투명
-  //     gsap.fromTo(
-  //       card,
-  //       { y: 40},                     // [초기] 아래쪽에서 살짝 보이기
-  //       { y: 0, ease: "none",          // [도착] 제자리, ease 없음(스크럽 반응형)
-  //         immediateRender: false,                    // [중요] 시작 전 미리 0으로 안 바꿈 → “띡” 방지
-  //         scrollTrigger: {
-  //           trigger: card,
-  //           start: "top 75%",                        // [진입 지점] 카드 상단이 화면 75%에 닿을 때부터
-  //           end:   "top 35%",                        // [완료 지점] 35%까지 오면 완전히 자리잡음
-  //           scrub: 1                               // [부드러움] 값↑일수록 스무스(0.5~1 추천)
-  //         }
-  //       }
-  //     );
-
-  //     if (prev) {
-  //       // 이전 카드는 살짝 위로 밀려 올라가며(=아래 카드가 덮는 느낌 강화)
-  //       gsap.fromTo(
-  //         prev,
-  //         { y: 0 },
-  //         { y: -40, ease: "none",
-  //           immediateRender: false,
-  //           scrollTrigger: {
-  //             trigger: card,                         // 다음 카드가 올라올 때 같이 반응
-  //             start: "top 75%",
-  //             end:   "top 35%",
-  //             scrub: 1
-  //           }
-  //         }
-  //       );
-  //     }
-  //   });
-  // });
-
 function business() {
   const tl = gsap.timeline();
 
