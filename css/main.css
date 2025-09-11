@@ -168,15 +168,39 @@ header .dep1 {
   object-fit: cover;
 }
 
-.main_visual .main_text1 {
+
+.main_visual .main_tit {
   position: absolute;
-  line-height: 4rem;
+  line-height: 1.6;
   top: 50%;
-  left: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 30;
-  color: #FFF;
-  font-size: 3rem;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;
   font-weight: 700;
+  color: #FFF;
+  /* opacity: 1;
+    transform: translateY(0);
+    transition: opacity ease 1s, transform 1.4s; */
+}
+
+
+.main_visual .swiper-slide-active .main_tit .main_text {
+      /* transform: translateY(40px);
+    opacity: 0;
+     */
+}
+
+.main_visual .main_text {
+  font-size: 6rem;
+  line-height: 2;
+}
+
+.main_visual .main_text1 {
+  font-size: 2rem;
 }
 
 /* 모바일에서 최소 높이 적용 */
@@ -185,6 +209,12 @@ header .dep1 {
       min-height: 40rem; 
       height: 100vw; 
   } */
+  
+  .main_visual .main_text {
+  font-size: 3rem;
+  line-height: 2.5;
+  }
+
   .main_visual .main_text1 {
     font-size: 1.6rem;
     line-height: 1.6;
@@ -291,6 +321,10 @@ header .dep1 {
   padding-right: clamp(2rem, 5vw, 12rem);
 }
 
+.e_outro>br {
+  display: none;
+}
+
 /* @media screen and (min-width: 767px) and (max-width: 1023px) { */
 @media screen and (max-width: 1023px) {
   .esg .container {
@@ -386,6 +420,10 @@ header .dep1 {
     line-height: 1.4;
 
   }
+
+  .e_outro>br {
+  display: block;
+}
 }
 
 
