@@ -55,43 +55,135 @@ window.addEventListener('scroll', function () {
 
 /* esg */
 // ========== 공통 함수(순서/내용 그대로) ==========
+// function animateFrom(elem, direction) {
+//   direction = direction || 1;
+//   var x = 0, y = direction * 100;
+//   if (elem.classList.contains("gs_reveal_fromLeft")) { 
+//     x = -100; 
+//     y = 0; 
+//   } else if (elem.classList.contains("gs_reveal_fromRight")) { 
+//     x = 100; 
+//     y = 0; 
+//   }
+
+//   elem.style.transform = "translate(" + x + "px, " + y + "px)";
+//   elem.style.opacity = "0";
+//   gsap.fromTo(elem, { x: x, y: y, autoAlpha: 0 }, {
+//     duration: 1.25, 
+//     x: 0, 
+//     y: 0, 
+//     autoAlpha: 1, 
+//     ease: "expo", 
+//     overwrite: "auto"
+//   });
+// }
+// function hide(elem) { gsap.set(elem, { autoAlpha: 0 }); }
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   // ================== [항시 실행] 타이틀 애니메이션 ==================
+//   // - 뷰포트와 무관하게 항상 동작
+//   // - 다른 구간에서 clearProps로 지우지 않도록 데스크탑 초기화 대상에서 제외할 것
+//   (function setupAlwaysOnTitle() {
+//     const title = document.querySelector(".esg_title.gs_reveal");
+//     if (!title) return;
+//     hide(title);
+//     ScrollTrigger.create({
+//       trigger: title,
+//       start: "top 60%",                 // 필요시 조정
+//       onEnter: () => animateFrom(title),
+//       onEnterBack: () => animateFrom(title, -1),
+//       onLeave: () => hide(title)
+//     });
+//   })();
+//   // ================== [항시 실행] 끝 ==================
+
+//   // ================== 반응형 분기 ==================
+//   ScrollTrigger.matchMedia({
+//     // <= 1023px : 기존 .gs_reveal 전부(타이틀 포함) 작동
+//     "(max-width: 1023px)": function () {
+//       gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
+//         // 타이틀은 이미 위에서 트리거 생성했지만, 중복 생성되어도 큰 문제는 없음.
+//         // 원치 않으면 여기서 타이틀을 건너뛰어도 됩니다.
+//         hide(elem);
+//         ScrollTrigger.create({
+//           trigger: elem,
+//           // markers: true,
+//           onEnter: function() { animateFrom(elem) },
+//           onEnterBack: function() { animateFrom(elem, -1) },
+//           onLeave: function() { hide(elem) }
+//         });
+//       });
+//     },
+
+//     // >= 1024px : 카드별 "이미지 -> 텍스트" 순서 등장
+//     "(min-width: 1024px)": function () {
+//       // clearProps 대상은 .features 내부의 gs_reveal만!
+//       // → 타이틀(.esg_title)은 제외해야 '항시 실행' 트리거가 정상 동작
+//       gsap.set(".features .gs_reveal", { clearProps: "opacity,visibility,transform" });
+
+//       const rows = gsap.utils.toArray(".features__item");
+//       rows.forEach((row) => {
+//         const img = row.querySelector(".features__card");
+//         const txt = row.querySelector(".features__content");
+
+//         // 초기 상태
+//         gsap.set([img, txt], { autoAlpha: 0, y: 40 });
+
+//         // 한 카드씩: 이미지 -> 텍스트
+//         gsap.timeline({
+//           scrollTrigger: {
+//             trigger: row,
+//             start: "top 55%",
+//             end: "bottom bottom",
+//             toggleActions: "play none none reverse",
+//             // markers: true,
+//           }
+//         })
+//         .to(img, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" })
+//         .to(txt, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.3");
+//       });
+//     }
+//   });
+// });
+
+// ////////////////////////////////////////////////
+
+
+// ========== 공통 함수 ==========
 function animateFrom(elem, direction) {
   direction = direction || 1;
   var x = 0, y = direction * 100;
   if (elem.classList.contains("gs_reveal_fromLeft")) { 
     x = -100; 
     y = 0; 
-  } else if (elem.classList.contains("gs_reveal_fromRight")) { 
+  }
+  else if (elem.classList.contains("gs_reveal_fromRight")) { 
     x = 100; 
     y = 0; 
   }
 
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "0";
-  gsap.fromTo(elem, { x: x, y: y, autoAlpha: 0 }, {
-    duration: 1.25, 
-    x: 0, 
-    y: 0, 
-    autoAlpha: 1, 
-    ease: "expo", 
-    overwrite: "auto"
+  gsap.fromTo(elem, { x, y, autoAlpha: 0 }, {
+    duration: 1.25, x: 0, y: 0, autoAlpha: 1, ease: "expo", overwrite: "auto"
   });
 }
+
 function hide(elem) { gsap.set(elem, { autoAlpha: 0 }); }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   // ================== [항시 실행] 타이틀 애니메이션 ==================
-  // - 뷰포트와 무관하게 항상 동작
-  // - 다른 구간에서 clearProps로 지우지 않도록 데스크탑 초기화 대상에서 제외할 것
   (function setupAlwaysOnTitle() {
     const title = document.querySelector(".esg_title.gs_reveal");
     if (!title) return;
     hide(title);
     ScrollTrigger.create({
       trigger: title,
-      start: "top 60%",                 // 필요시 조정
+      start: "top 70%",
       onEnter: () => animateFrom(title),
       onEnterBack: () => animateFrom(title, -1),
       onLeave: () => hide(title)
@@ -99,101 +191,77 @@ document.addEventListener("DOMContentLoaded", function() {
   })();
   // ================== [항시 실행] 끝 ==================
 
-  // ================== 반응형 분기 ==================
-  ScrollTrigger.matchMedia({
-    // <= 1023px : 기존 .gs_reveal 전부(타이틀 포함) 작동
-    "(max-width: 1023px)": function () {
-      gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
-        // 타이틀은 이미 위에서 트리거 생성했지만, 중복 생성되어도 큰 문제는 없음.
-        // 원치 않으면 여기서 타이틀을 건너뛰어도 됩니다.
-        hide(elem);
-        ScrollTrigger.create({
-          trigger: elem,
-          // markers: true,
-          onEnter: function() { animateFrom(elem) },
-          onEnterBack: function() { animateFrom(elem, -1) },
-          onLeave: function() { hide(elem) }
-        });
+  // ================== 반응형 분기(이것만 사용) ==================
+  const mm = gsap.matchMedia();
+
+  // <= 1023px : 기존 .gs_reveal 전부(타이틀 포함) 작동
+  mm.add("(max-width: 1023px)", () => {
+    const elems = gsap.utils.toArray(".gs_reveal");
+    elems.forEach((elem) => {
+      hide(elem);
+      ScrollTrigger.create({
+        trigger: elem,
+        // markers: true,
+        onEnter: () => animateFrom(elem),
+        onEnterBack: () => animateFrom(elem, -1),
+        onLeave: () => hide(elem),
+        invalidateOnRefresh: true
       });
-    },
+    });
 
-    // >= 1024px : 카드별 "이미지 -> 텍스트" 순서 등장
-    "(min-width: 1024px)": function () {
-      // ⚠️ clearProps 대상은 .features 내부의 gs_reveal만!
-      //    → 타이틀(.esg_title)은 제외해야 '항시 실행' 트리거가 정상 동작
-      gsap.set(".features .gs_reveal", { clearProps: "opacity,visibility,transform" });
-
-      const rows = gsap.utils.toArray(".features__item");
-      rows.forEach((row) => {
-        const img = row.querySelector(".features__card");
-        const txt = row.querySelector(".features__content");
-
-        // 초기 상태
-        gsap.set([img, txt], { autoAlpha: 0, y: 40 });
-
-        // 한 카드씩: 이미지 -> 텍스트
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: row,
-            start: "top 70%",
-            end: "bottom 40%",
-            toggleActions: "play none none reverse",
-            // markers: true,
-          }
-        })
-        .to(img, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" })
-        .to(txt, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.3");
+    // cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach(st => {
+        // 이 구간에서 만든 것만 정리하고 싶다면 id나 trigger로 필터링하세요.
       });
-    }
+    };
   });
-  // ================== 반응형 분기 끝 ==================
+
+  // >= 1024px : 카드별 "이미지 -> 텍스트" 순서 등장 (단일 TL에 쌍으로)
+  mm.add("(min-width: 1024px)", () => {
+    // 1) .features 내부 .gs_reveal만 초기화 (타이틀은 건드리지 않음)
+    gsap.set(".features .gs_reveal", { clearProps: "opacity,visibility,transform" });
+
+    // 2) 왼→오 순서를 화면상의 x좌표로 보장
+    const rows = gsap.utils.toArray(".features__item")
+      .sort((a, b) => a.getBoundingClientRect().left - b.getBoundingClientRect().left);
+
+    // 3) 각 아이템의 img/txt 쌍 만들기
+    const pairs = rows.map(row => ({
+      img: row.querySelector(".features__card"),
+      txt: row.querySelector(".features__content"),
+    })).filter(p => p.img && p.txt); // 안전장치
+
+    // 4) 초기 상태
+    // 초기값은 그대로
+    gsap.set(pairs.flatMap(p => [p.img, p.txt]), { autoAlpha: 0, y: 40, x: -16 });
+
+    // 단일 타임라인
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".features",
+        start: "top 55%",
+        end: "bottom 40%",
+        toggleActions: "play none none reverse",
+        invalidateOnRefresh: true,
+        // markers: true,
+      }
+    });
+
+    // ★ 변경 포인트: 각 쌍에서 img+txt를 '동시에' 등장
+    pairs.forEach(({ img, txt }) => {
+      tl.to([img, txt], {
+        autoAlpha: 1,
+        y: 0,
+        x: 0,
+        duration: 0.55,
+        ease: "power2.out"
+      }, ">"); // 이전 쌍이 끝난 직후 시작
+    });
+
+  });
 });
 
-
-
-
-// function animateFrom(elem, direction) {
-//   direction = direction || 1;
-//   var x = 0,
-//       y = direction * 100;
-//   if(elem.classList.contains("gs_reveal_fromLeft")) {
-//     x = -100;
-//     y = 0;
-//   } else if (elem.classList.contains("gs_reveal_fromRight")) {
-//     x = 100;
-//     y = 0;
-//   }
-//   elem.style.transform = "translate(" + x + "px, " + y + "px)";
-//   elem.style.opacity = "0";
-//   gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
-//     duration: 1.25, 
-//     x: 0,
-//     y: 0, 
-//     autoAlpha: 1, 
-//     ease: "expo", 
-//     overwrite: "auto"
-//   });
-// }
-
-// function hide(elem) {
-//   gsap.set(elem, {autoAlpha: 0});
-// }
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   gsap.registerPlugin(ScrollTrigger);
-  
-//   gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
-//     hide(elem); // assure that the element is hidden when scrolled into view
-    
-//     ScrollTrigger.create({
-//       trigger: elem,
-//       // markers: true,
-//       onEnter: function() { animateFrom(elem) }, 
-//       onEnterBack: function() { animateFrom(elem, -1) },
-//       onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
-//     });
-//   });
-// });
 
 
 
@@ -202,11 +270,11 @@ document.addEventListener("DOMContentLoaded", function() {
 function business() {
   const tl = gsap.timeline();
 
-  tl.fromTo('.business .main_b1', { opacity: 1, yPercent: 30 }, { opacity: 1, yPercent: 0, duration: 1 })
+  tl.fromTo('.business .main_b1', { opacity: 1, yPercent: 25 }, { opacity: 1, yPercent: 0, duration: 1 })
   // .fromTo('.section-solution .section-1 .thumbnail .image', 0.6, { scale: 1.3 }, { scale: 1 }, '<')
-  .fromTo('.business .main_b2', { opacity: 1, yPercent: 45 }, { opacity: 1, yPercent: 0, duration: 1 })
+  .fromTo('.business .main_b2', { opacity: 1, yPercent: 40 }, { opacity: 1, yPercent: 0, duration: 1 })
   // .fromTo('.section-solution .section-2 .thumbnail .image', 0.6, { scale: 1.3 }, { scale: 1 }, '<')
-  .fromTo('.business .main_b3', { opacity: 1, yPercent: 45 }, { opacity: 1, yPercent: 0, duration: 1 })
+  .fromTo('.business .main_b3', { opacity: 1, yPercent: 40 }, { opacity: 1, yPercent: 0, duration: 1 })
   // .fromTo('.section-solution .section-3 .thumbnail .image', 0.6, { scale: 1.3 }, { scale: 1 }, '<')
 
   ScrollTrigger.create({
@@ -222,6 +290,8 @@ function business() {
 document.addEventListener("DOMContentLoaded", () => {
   business();
 });
+
+
 
 /* News */
 const swiper = new Swiper(".news-swiper", {
