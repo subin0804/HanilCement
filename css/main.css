@@ -168,11 +168,8 @@ header .dep1 {
   object-fit: cover;
 }
 
-
 .main_visual .main_tit {
   position: absolute;
-  line-height: 1.6;
-  top: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -181,11 +178,11 @@ header .dep1 {
   padding: 0 1rem;
   text-align: center;
   font-weight: 700;
+  font-size: 4rem;
+  line-height: 1.4;
   color: #FFF;
-  /* opacity: 1;
-    transform: translateY(0);
-    transition: opacity ease 1s, transform 1.4s; */
 }
+
 
 
 .main_visual .swiper-slide-active .main_tit .main_text {
@@ -194,14 +191,6 @@ header .dep1 {
      */
 }
 
-.main_visual .main_text {
-  font-size: 6rem;
-  line-height: 2;
-}
-
-.main_visual .main_text1 {
-  font-size: 2rem;
-}
 
 /* 모바일에서 최소 높이 적용 */
 @media (max-width: 768px) {
@@ -230,7 +219,7 @@ header .dep1 {
 .esg .container {
   max-width: 1240px;
   margin: 0 auto;
-  /* padding: 0; */
+  padding: 2rem;
 }
 
 .content__hero {
@@ -242,7 +231,7 @@ header .dep1 {
 
 .esg_title {
   text-align: center;
-  font-size: 5rem;
+  font-size: 7rem;
   font-weight: 800;
   color: #FFF;
 }
@@ -258,7 +247,7 @@ header .dep1 {
 .features__item {
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 7rem;
   height: 100vh;
   flex: 1 1 0;
 }
@@ -291,12 +280,13 @@ header .dep1 {
 }
 
 .features__title {
-  font-size: 1.8em;
-  margin-block-end: 1rem;
+  font-size: 2em;
+  margin-block-end: 1.5rem;
 }
 
 .features__description {
   line-height: 1.6;
+  font-size: 1.8rem;
 }
 
 .features__description br {
@@ -305,8 +295,6 @@ header .dep1 {
 
 /* GSAP animation reveal styles */
 .gs_reveal {
-  /* opacity: 0; */
-  /* visibility: hidden; */
   will-change: transform, opacity;
 }
 
@@ -328,29 +316,15 @@ header .dep1 {
 /* @media screen and (min-width: 767px) and (max-width: 1023px) { */
 @media screen and (max-width: 1023px) {
   .esg .container {
-  max-width: 1240px;
-  margin: 0 auto;
-  
-  }
-
-  .content__hero {
-    height: 40vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .esg_title {
-    text-align: center;
-    font-size: 5rem;
-    font-weight: 800;
-    color: #FFF;
+    max-width: 1240px;
+    margin: 0 auto;
   }
 
   .features {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    padding: 0;
+    gap: 0;
     color: #FFF;
     border: none;
   }
@@ -359,7 +333,8 @@ header .dep1 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 5rem 0;
     height: 100vh;
     border-top: dashed 2px grey;
   }
@@ -383,6 +358,7 @@ header .dep1 {
     overflow: hidden;
     position: relative;
     aspect-ratio: 1 / 1;
+
   }
 
   .features__img {
@@ -413,12 +389,19 @@ header .dep1 {
   }
 }
 
+@media screen and (max-width: 610px) {
+    .esg_title {
+    font-size: 5.8rem;
+
+  }
+}
+
+
 @media screen and (max-width: 480px) {
   .e_outro {
     height: 80vh;
     font-size: 2rem;
     line-height: 1.4;
-
   }
 
   .e_outro>br {
@@ -442,7 +425,6 @@ header .dep1 {
   text-align: center;
   font-size: 38rem;
   line-height: 0.5;
-
   /* 노트북 이하 */
   /* font-size: 27rem; */
 }
@@ -462,6 +444,7 @@ header .dep1 {
 
 .business .main_b_card {
   position: relative;
+  height: 52rem;
   padding: 4rem 0;
 }
 
@@ -501,17 +484,16 @@ header .dep1 {
 }
 
 .business .b3 p, .b3 {
-  color: #FFF;
+  color: #EEE;
 }
 
 .business .b_tit {
   font-size: 12rem;
   width: 50rem;
   height: 18rem;
-  line-height: 12rem;
-  text-align: left  ;
+  text-align: left;
   font-weight: 600;
-  color: 	#050014;
+  color: 	#222;
   margin-top: 3rem;
 }
 
@@ -520,6 +502,7 @@ header .dep1 {
   line-height: 3rem;
   width: 60rem;
   font-size: 2rem;
+  font-weight: 400;
   color: #222;
 }
 
@@ -887,6 +870,7 @@ header .dep1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  /* font-family: 'EBGaramond'; */
   color: #FFF;
 }
 
