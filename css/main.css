@@ -390,14 +390,24 @@ header .dep1 {
 }
 
 @media screen and (max-width: 610px) {
-    .esg_title {
+  .esg_title {
     font-size: 5.8rem;
-
   }
 }
 
-
 @media screen and (max-width: 480px) {
+  .content__hero {
+  /* height: 20vh; */
+  }
+
+  .esg_title {
+    font-size: 4rem;
+  }
+
+  .features__description {
+    font-size: 1.6rem;
+  }
+
   .e_outro {
     height: 80vh;
     font-size: 2rem;
@@ -444,7 +454,7 @@ header .dep1 {
 
 .business .main_b_card {
   position: relative;
-  height: 52rem;
+  /* height: 52rem; */
   padding: 4rem 0;
 }
 
@@ -989,8 +999,6 @@ footer .family_site ul {
   scrollbar-width: none;
   overflow: auto;
   border-radius: 1rem;
-  /* background: #eee; */
-  /* color: #000; */
   background: #000;
   color: #eee;
   border: 1px solid #AAA;
@@ -1005,7 +1013,6 @@ footer .family_site ul li {
 
 footer .footer_wrap2 {
   display: flex;
-  /* justify-content: space-between; */
   gap: 12rem;
 }
 
@@ -1031,9 +1038,9 @@ footer .footer_info {
 } 
 
 @media screen and (max-width: 480px) {
-footer {
-  height: 38rem;  
-}
+  footer {
+    height: 38rem;  
+  }
 
   footer .footer_wrap {
     flex-direction: column-reverse;
@@ -1050,14 +1057,16 @@ footer {
     font-size: 1.6rem;
   }
 
-  footer address {
-  
-    
-  }
-
   footer address span {
     font-weight: 600;
   }
+
+  footer .family_site ul {
+  display: none;
+  position: absolute;
+  right: -2rem;
+  transform: translateY(-210px);
+
 }
 
 
