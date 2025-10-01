@@ -307,7 +307,7 @@ const swiper = new Swiper(".news-swiper", {
     // 0~767px (모바일)
     0: {
       direction: 'horizontal',   
-      slidesPerView:3
+      slidesPerView:2
       },
     767: {
       direction: 'horizontal',

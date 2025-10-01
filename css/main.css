@@ -651,17 +651,15 @@ header .dep1 {
   width: 100%;
 }
 
-.news_wrap a>p {
+.news_wrap .news_tit {
   display: -webkit-box;
-  -webkit-box-orient: vertical;  /* 세로로 줄 쌓기 */
+  -webkit-box-orient: vertical;  
   -webkit-line-clamp: 2;         /* 2줄까지만 표시 */
   overflow: hidden;
   line-height: 2rem;
   margin-top: 2rem;
-}
-
-.news_wrap .news_tit {
-  height: 8rem;
+  margin-bottom: 4rem;
+  min-height: 4rem;
   font-weight: 700;
   font-size: 2rem;
   color: #333;
@@ -675,12 +673,26 @@ header .dep1 {
   margin-bottom: 7rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 980px) {
+  .news_wrap .news_tit {
+  font-size: 1.8rem;
 
-
-
+  }
 }
 
+@media screen and (max-width: 480px) {
+
+
+
+  .news_wrap .news_tit {
+    font-size: 1.6rem;
+  }
+
+  .news_wrap .news_date {
+    font-size: 1.4rem;
+}
+
+}
 
 /* 섹션5 */
 .recruit {
