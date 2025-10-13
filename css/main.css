@@ -152,6 +152,7 @@ header .dep1 {
     font-size: 2.2rem;
 }
 
+
 /* ===== 메인 컨텐트 ===== */
 /* 섹션1 */
 .main_visual .main_wrap {
@@ -171,8 +172,8 @@ header .dep1 {
 .main_visual .main_tit {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
   z-index: 30;
   width: 100%;
   padding: 0 1rem;
@@ -180,16 +181,16 @@ header .dep1 {
   font-weight: 700;
   font-size: 4rem;
   line-height: 1.4;
-  color: #FFF;
+  color: #EEE;
 }
 
+.main_tit { position: relative; animation: fade_up 1s; }
 
-
-.main_visual .swiper-slide-active .main_tit .main_text {
-      /* transform: translateY(40px);
-    opacity: 0;
-     */
+@keyframes fade_up {
+	0% { opacity: 0; transform: translateY(100%); }
+	to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 /* 모바일에서 최소 높이 적용 */
