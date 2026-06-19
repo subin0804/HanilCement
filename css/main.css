@@ -63,7 +63,7 @@ section {
 
 
 /* start */
-/* 헤더 */
+/* ==================== 헤더 */
 header {
     position: fixed;
     left: 0;
@@ -71,7 +71,7 @@ header {
     z-index: 9999;
     padding: 1.5rem 0;
     color: #FFF;
-    background-color: #000;
+    background-color: #0e0e0e;
     transition: transform 0.3s ease;
 }
 
@@ -96,47 +96,75 @@ header h1 a {
     background-size: 100% auto;
 }
 
-header .dep2 {
-    display: none;
+
+/* ==================== header gnb */
+header .dep1 {
+  display: flex;
+  gap: 6rem;
+  font-size: 1.8rem;
 }
 
-/* gnb */
-header .dep1 {
-    display: flex;
-    gap: 6rem;
-    font-size: 1.8rem;
+header .dep1 li {
+  position: relative;
+}
+
+header .dep2 {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  z-index: 1;
+}
+
+header .dep2 li {
+  color: #aaa;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 
 /* util */
 .header_util {
-    display: flex;
-    align-items: center;
-    /* 모든 버튼/아이콘 수직 정렬 맞추기 */
-    gap: 1rem;
-}
-.header_util ul {
-    display: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header_util button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    color: #FFF;
-    /* 아이콘 크기 통일 */
-    display: flex;
-    align-items: center;
-    /* 버튼 안 아이콘도 정렬 */
-    justify-content: center;
-    line-height: 1;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
+.header_util ul {
+  position: absolute;
+  display: none;
+  left: 2.5rem;
+  width: 5rem;
+  padding: .3rem 0;
+  text-align: center;
+  border-radius: .5rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05);
+  background: #EEE;
+  color: #111;
+}
+
+.header_util ul li {
+  padding: .5rem 0;
+}
+
+
 .header_util .earth {
-    display: inline-block;
-    font-size: 2.6rem;
-    margin-right: .6rem;
+  display: inline-block;
+  font-size: 2.6rem;
+  margin-right: .6rem;
 }
 
 .header_util span {
@@ -150,6 +178,40 @@ header .dep1 {
 
 .header_util .search_wrap {
     font-size: 2.2rem;
+}
+
+/* gnb */
+header.on {
+    border-bottom: 1px solid #CCC;
+    background: #0e0e0e;
+  
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 7.1rem;
+    height: 0;
+    opacity: 0;
+    background: #0e0e0e;
+    transition: all 0.5s;
+    
+}
+
+header.on::after {
+    height: 42rem;
+    opacity: 1;
+}
+
+header.on .dep2 {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 
@@ -174,7 +236,7 @@ header .dep1 {
   top: 50%;
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
-  z-index: 30;
+  z-index: 2;
   width: 100%;
   padding: 0 1rem;
   text-align: center;
@@ -214,7 +276,7 @@ header .dep1 {
 
 /* 섹션2 */
 .esg {
-  background: #070707;
+  background: #0e0e0e;
 }
 
 .esg .container {
@@ -301,7 +363,7 @@ header .dep1 {
 
 .e_outro {
   height: 100vh;
-  background: #070707;
+  background: #0e0e0e;
   color: #FFF;
   text-align: center;
   padding-top: 12rem;
@@ -423,7 +485,7 @@ header .dep1 {
 
 /* 섹션3 */
 .business {
-  background: linear-gradient(to bottom, #070707 0%, #333333 70%, #fff 80%);
+  background: linear-gradient(to bottom, #0e0e0e 0%, #333333 70%, #fff 80%);
   position: relative;
 }
 
@@ -548,7 +610,7 @@ header .dep1 {
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 3;
 }
 
 @media screen and (max-width: 1440px) {
@@ -939,7 +1001,7 @@ header .dep1 {
     pointer-events: none; /* 클릭 방해 안함 */
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, opacity 0.2s ease;
-    z-index: 9999;
+    z-index: 4;
     opacity: 0.8; /* 살짝 투명 */
 }
 
@@ -973,7 +1035,7 @@ header .dep1 {
 /* footer */
 footer {
   /* background: #323131; */
-  background: #000;
+  background: #0e0e0e;
   height: 20rem;
   color: #FFF;
 }

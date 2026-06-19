@@ -4,20 +4,66 @@ gsap.registerPlugin(ScrollToPlugin);
 
 /* 헤더 스크롤*/
 let lastScrollY = window.scrollY;
-const header = document.querySelector('header');
+const headerS = document.querySelector('header');
 
 window.addEventListener('scroll', function () {
   const currentScrollY = window.scrollY;
 
   if (currentScrollY > lastScrollY && currentScrollY > 10) {
     // 아래로 스크롤 중 + 약간 내려간 상태 → 헤더 숨김
-    header.classList.add('hide');
+    headerS.classList.add('hide');
   } else {
     // 위로 스크롤 중 → 헤더 표시
-    header.classList.remove('hide');
+    headerS.classList.remove('hide');
   }
 
   lastScrollY = currentScrollY;
+});
+
+/* 헤더 util */
+const utilBtn = document.querySelector('.header_util button')
+const utilList = document.querySelector('.header_util ul')
+
+utilBtn.addEventListener('click', function () {
+  if (utilList.style.display === 'none') {
+    utilList.style.display = 'block'
+  } else {
+    utilList.style.display = 'none'
+  }
+})
+
+
+/* 헤더 gnb 열고 닫기 */
+const header = document.querySelector('header');
+const menuItems = document.querySelectorAll('header #gnb .dep1 > li');
+const dep2Links = document.querySelectorAll('header .dep2 a');
+
+// 메뉴 hover 시 열기
+menuItems.forEach((item) => {
+  item.addEventListener('mouseenter', function () {
+    header.classList.add('on');
+    this.classList.add('over');
+  });
+
+  item.addEventListener('mouseleave', function () {
+    this.classList.remove('over');
+  });
+});
+
+// dep2 클릭 시 닫기
+dep2Links.forEach(link => {
+  link.addEventListener('click', () => {
+    header.classList.remove('on');
+    menuItems.forEach(item => item.classList.remove('over'));
+  });
+});
+
+// header 전체에서 마우스 빠져나가면 닫기
+header.addEventListener('mouseleave', function (e) {
+  if (!header.contains(e.relatedTarget)) {
+    header.classList.remove('on');
+    menuItems.forEach(item => item.classList.remove('over'));
+  }
 });
 
 
