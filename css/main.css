@@ -184,7 +184,7 @@ header .dep2 li {
 header.on {
     border-bottom: 1px solid #CCC;
     background: #0e0e0e;
-  
+    z-index: 2;
 }
 
 header::after {
@@ -211,7 +211,12 @@ header.on .dep2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
+  width: 10rem;
+}
+
+header.on .dep2>li:hover {
+  color: #FFF;
 }
 
 
@@ -236,7 +241,7 @@ header.on .dep2 {
   top: 50%;
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   padding: 0 1rem;
   text-align: center;
@@ -610,7 +615,7 @@ header.on .dep2 {
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 3;
+  z-index: 4;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1001,7 +1006,7 @@ header.on .dep2 {
     pointer-events: none; /* 클릭 방해 안함 */
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, opacity 0.2s ease;
-    z-index: 4;
+    z-index: 5;
     opacity: 0.8; /* 살짝 투명 */
 }
 
